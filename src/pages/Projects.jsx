@@ -47,7 +47,7 @@ const Projects = () => {
       <section className={styles.projectsSection}>
         <div className="container">
           <div className={styles.header}>
-            <h1 className={styles.title}>Featured <span className="text-gradient">Projects</span></h1>
+            <h1 className={styles.title}>My <span className="text-gradient">Projects</span></h1>
             <p className={styles.subtitle}>A selection of my recent work and personal projects.</p>
           </div>
 

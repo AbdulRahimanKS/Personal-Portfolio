@@ -28,29 +28,33 @@
 }
 
 [data-theme='dark'] {
-  /* Dark Theme */
-  --background: #0f172a;
-  --on-background: #f8fafc;
-  --surface: #1e293b;
-  --surface-container-low: #334155;
-  --surface-container: #475569;
-  --on-surface: #f8fafc;
-  --on-surface-variant: #cbd5e1;
+  /* Dark Theme - Neutral Charcoal */
+  --background: #121212;
+  --on-background: #f9f9f9;
+  --surface: #1e1e1e;
+  --surface-container-low: #262626;
+  --surface-container: #333333;
+  --on-surface: #f9f9f9;
+  --on-surface-variant: #a3a3a3;
   --primary: #3b82f6;
   --on-primary: #ffffff;
   --primary-container: #1e3a8a;
   --on-primary-container: #eff6ff;
-  --secondary: #94a3b8;
-  --outline: #64748b;
-  --outline-variant: #334155;
-  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --secondary: #9e9e9e;
+  --outline: #525252;
+  --outline-variant: #2e2e2e;
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

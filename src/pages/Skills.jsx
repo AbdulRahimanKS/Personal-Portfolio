@@ -88,14 +88,6 @@ const Skills = () => {
               </div>
             ))}
           </div>
-
-          <div className={styles.bottomSection}>
-            <div className={styles.ctaBox}>
-              <h3 className={styles.ctaTitle}>Looking for a specific skill?</h3>
-              <p className={styles.ctaText}>I'm always learning new technologies. If you need something not listed here, let's talk.</p>
-              <a href="/contact" className="btn btn-primary">Contact Me</a>
-            </div>
-          </div>
         </div>
       </section>
     </Layout>

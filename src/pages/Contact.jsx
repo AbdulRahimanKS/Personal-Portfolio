@@ -26,7 +26,7 @@ const Contact = () => {
       <section className={styles.contactSection}>
         <div className="container">
           <div className={styles.header}>
-            <h1 className={styles.title}>Get In <span className="text-gradient">Touch</span></h1>
+            <h1 className={styles.title}>Contact <span className="text-gradient">Me</span></h1>
             <p className={styles.subtitle}>Have a project in mind? Let's discuss how I can help.</p>
           </div>
 

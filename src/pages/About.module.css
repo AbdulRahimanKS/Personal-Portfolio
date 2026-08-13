@@ -152,7 +152,7 @@
     right: -16px;
     padding: 16px;
   }
-  
+
   .statsGrid {
     grid-template-columns: 1fr;
     gap: 16px;
