@@ -1,20 +1,20 @@
 .projectsSection {
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 32px;
 }
 
 .title {
-  font-size: 40px;
+  font-size: 28px;
   color: var(--on-surface);
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .subtitle {
-  font-size: 18px;
+  font-size: 14px;
   color: var(--on-surface-variant);
 }
 
@@ -36,7 +36,7 @@
   aspect-ratio: 16/9;
   background-color: var(--surface-container-low);
   border-radius: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +51,7 @@
 }
 
 .projectTitle {
-  font-size: 24px;
+  font-size: 18px;
   color: var(--on-surface);
 }
 

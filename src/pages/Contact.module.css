@@ -1,20 +1,20 @@
 .contactSection {
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 32px;
 }
 
 .title {
-  font-size: 40px;
+  font-size: 28px;
   color: var(--on-surface);
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .subtitle {
-  font-size: 18px;
+  font-size: 14px;
   color: var(--on-surface-variant);
 }
 
@@ -35,15 +35,16 @@
 }
 
 .infoTitle {
-  font-size: 24px;
+  font-size: 20px;
   color: var(--on-surface);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .infoDesc {
   color: var(--on-surface-variant);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   line-height: 1.6;
+  font-size: 14px;
 }
 
 .infoItems {
@@ -68,14 +69,15 @@
 }
 
 .itemLabel {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--on-surface-variant);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .itemValue {
   font-weight: 500;
   color: var(--on-surface);
+  font-size: 14px;
 }
 
 .socialLinks {
