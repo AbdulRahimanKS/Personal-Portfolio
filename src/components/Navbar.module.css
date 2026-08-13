@@ -1,0 +1,131 @@
+.header {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--outline-variant);
+  transition: background-color var(--transition-speed);
+}
+
+[data-theme='dark'] .header {
+  background-color: rgba(30, 41, 59, 0.8); /* surface color with opacity */
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--on-surface);
+  transition: opacity 0.2s;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.navLink {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.navLink:hover {
+  color: var(--primary);
+}
+
+.navLink.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobileToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--on-surface);
+  cursor: pointer;
+}
+
+.mobileActions {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    position: fixed;
+    top: 73px;
+    left: 0;
+    right: 0;
+    background-color: var(--surface);
+    flex-direction: column;
+    padding: 24px;
+    gap: 16px;
+    border-bottom: 1px solid var(--outline-variant);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 40;
+  }
+
+  .nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .desktopBtn {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobileActions {
+    display: block;
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  .mobileActions .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,123 @@
+.skillsSection {
+  padding: 80px 0;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.title {
+  font-size: 40px;
+  color: var(--on-surface);
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--on-surface-variant);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--surface-container-low);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.categoryTitle {
+  font-size: 24px;
+  color: var(--on-surface);
+}
+
+.skillsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.skillItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skillInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skillName {
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.skillLevel {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--on-surface-variant);
+}
+
+.progressBar {
+  height: 8px;
+  background-color: var(--surface-container);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), #60a5fa);
+  border-radius: 999px;
+  transition: width 1s ease-in-out;
+}
+
+.bottomSection {
+  margin-top: 64px;
+  display: flex;
+  justify-content: center;
+}
+
+.ctaBox {
+  background-color: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: 16px;
+  padding: 48px;
+  text-align: center;
+  max-width: 600px;
+}
+
+.ctaTitle {
+  font-size: 24px;
+  color: var(--on-surface);
+  margin-bottom: 16px;
+}
+
+.ctaText {
+  color: var(--on-surface-variant);
+  margin-bottom: 24px;
+}
