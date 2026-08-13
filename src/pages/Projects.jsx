@@ -32,7 +32,7 @@ const Projects = () => {
       ]
     },
     {
-      title: "DevPortfolio Template",
+      title: "Portfolio Template",
       description: "A customizable, premium developer portfolio template. Built with performance and accessibility in mind, featuring a fully responsive design and dark mode support.",
       tags: ["React", "Vite", "Vanilla CSS"],
       links: [

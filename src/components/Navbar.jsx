@@ -22,7 +22,6 @@ const Navbar = () => {
     <header className={styles.header}>
       <div className={`container ${styles.navbar}`}>
         <Link to="/" className={styles.logo}>
-          DevPortfolio
         </Link>
         
         <div className={styles.rightSection}>

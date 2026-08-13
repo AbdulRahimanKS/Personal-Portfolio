@@ -3,7 +3,7 @@
 }
 
 .header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 32px;
 }
 
@@ -119,6 +119,31 @@
 .statLabel {
   font-size: 12px;
   color: var(--on-surface-variant);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.socialLink {
+  padding: 12px 24px;
+  border-radius: 999px;
+  background-color: var(--surface-container);
+  color: var(--on-surface);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border: 1px solid var(--outline-variant);
+}
+
+.socialLink:hover {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  transform: translateY(-2px);
+  border-color: var(--primary);
 }
 
 @media (max-width: 768px) {

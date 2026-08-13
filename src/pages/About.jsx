@@ -56,6 +56,15 @@ const About = () => {
                   <span className={styles.statLabel}>Open Source Contributions</span>
                 </div>
               </div>
+
+              <div className={styles.socialLinks}>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                  LinkedIn
+                </a>
+                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                  GitHub
+                </a>
+              </div>
             </div>
           </div>
         </div>

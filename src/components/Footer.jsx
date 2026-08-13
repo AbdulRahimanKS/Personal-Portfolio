@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container">
         <div className={styles.content}>
           <div className={styles.logoInfo}>
-            <h2 className={styles.logo}>DevPortfolio</h2>
+
             <p className={styles.tagline}>Building reliable, scalable web applications.</p>
           </div>
           <div className={styles.links}>
