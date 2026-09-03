@@ -57,14 +57,14 @@ const Contact = () => {
                 </div>
 
                 <div className={styles.socialLinks}>
-                  <a href="#" className={styles.socialIcon} aria-label="GitHub">
+                  <a href="https://github.com/AbdulRahimanKS" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="GitHub">
                     <span className="material-symbols-outlined">code</span>
                   </a>
-                  <a href="#" className={styles.socialIcon} aria-label="LinkedIn">
+                  <a href="https://www.linkedin.com/in/abdul-rahiman-ks" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="LinkedIn">
                     <span className="material-symbols-outlined">work</span>
                   </a>
-                  <a href="#" className={styles.socialIcon} aria-label="Twitter">
-                    <span className="material-symbols-outlined">chat</span>
+                  <a href="https://www.instagram.com/_rxh_mxn_/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram">
+                    <span className="material-symbols-outlined">photo_camera</span>
                   </a>
                 </div>
               </div>

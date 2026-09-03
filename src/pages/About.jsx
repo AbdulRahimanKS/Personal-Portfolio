@@ -32,7 +32,7 @@ const About = () => {
               
               <div className={styles.paragraphs}>
                 <p>
-                  Hello! I'm Alex, a Full Stack Developer with a passion for building robust and scalable web applications. My journey in software development started with a curiosity for how things work on the internet, which quickly evolved into a full-fledged career.
+                  Hello! I'm Abdul Rahiman, a Full Stack Developer with a passion for building robust and scalable web applications. My journey in software development started with a curiosity for how things work on the internet, which quickly evolved into a full-fledged career.
                 </p>
                 <p>
                   I specialize in both frontend and backend technologies, allowing me to understand and architect complete solutions. Whether it's crafting a pixel-perfect user interface or designing a complex database schema, I approach every task with the same level of dedication and attention to detail.
@@ -58,11 +58,14 @@ const About = () => {
               </div>
 
               <div className={styles.socialLinks}>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                <a href="https://www.linkedin.com/in/abdul-rahiman-ks" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                   LinkedIn
                 </a>
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                <a href="https://github.com/AbdulRahimanKS" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                   GitHub
+                </a>
+                <a href="https://www.instagram.com/_rxh_mxn_/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                  Instagram
                 </a>
               </div>
             </div>

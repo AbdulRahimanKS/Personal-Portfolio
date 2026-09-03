@@ -14,26 +14,23 @@ const Home = () => {
                 Full Stack <span className="text-gradient">Developer</span>
               </h1>
               <p className={styles.description}>
-                I build reliable, user-friendly web applications from frontend to backend, turning complex problems into simple, scalable solutions.
+                I turn ideas into reliable digital products by building clean, scalable applications from frontend to backend.
               </p>
               
               <div className={styles.ctaGroup}>
-                <a href="#work" className="btn btn-primary">View My Work</a>
-                <a href="/contact" className="btn btn-outline">Contact Me</a>
+                <a href="#projects" className="btn btn-primary">View My Work</a>
+                <a href="#contact" className="btn btn-outline">Contact Me</a>
               </div>
 
               <div className={styles.socialLinks}>
-                <a href="#" className={styles.socialIcon} aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/abdul-rahiman-ks" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="LinkedIn">
                   <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                 </a>
-                <a href="#" className={styles.socialIcon} aria-label="GitHub">
+                <a href="https://github.com/AbdulRahimanKS" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="GitHub">
                   <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                 </a>
-                <a href="#" className={styles.socialIcon} aria-label="Instagram">
+                <a href="https://www.instagram.com/_rxh_mxn_/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram">
                   <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                </a>
-                <a href="#" className={styles.socialIcon} aria-label="Twitter">
-                  <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
                 </a>
               </div>
             </div>
@@ -55,23 +52,22 @@ const Home = () => {
                 
                 <div className={styles.editorBody}>
                   <div className={styles.lineNumbers}>
-                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
                   </div>
                   <div className={styles.codeContent}>
                     <div className={styles.codeLine}><span className={styles.keyword}>const</span> <span className={styles.variable}>developer</span> = {'{'}</div>
                     <div className={styles.codeLine}>&nbsp;&nbsp;<span className={styles.property}>name</span>: <span className={styles.string}>"Abdul Rahiman"</span>,</div>
                     <div className={styles.codeLine}>&nbsp;&nbsp;<span className={styles.property}>role</span>: <span className={styles.string}>"Full Stack Developer"</span>,</div>
-                    <div className={styles.codeLine}>&nbsp;&nbsp;<span className={styles.property}>passion</span>: <span className={styles.string}>"Building impactful digital experiences"</span>,</div>
-                    <div className={styles.codeLine}>&nbsp;&nbsp;<span className={styles.property}>skills</span>: [</div>
-                    <div className={styles.codeLine}>&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.string}>"Frontend"</span>,</div>
-                    <div className={styles.codeLine}>&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.string}>"Backend"</span>,</div>
-                    <div className={styles.codeLine}>&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.string}>"APIs"</span>,</div>
-                    <div className={styles.codeLine}>&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.string}>"Databases"</span></div>
+                    <div className={styles.codeLine}>&nbsp;&nbsp;<span className={styles.property}>focus</span>: [</div>
+                    <div className={styles.codeLine}>&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.string}>"Web Applications"</span>,</div>
+                    <div className={styles.codeLine}>&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.string}>"Backend Systems"</span>,</div>
+                    <div className={styles.codeLine}>&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.string}>"APIs & Databases"</span>,</div>
+                    <div className={styles.codeLine}>&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.string}>"AI Integration"</span></div>
                     <div className={styles.codeLine}>&nbsp;&nbsp;]</div>
                     <div className={styles.codeLine}>{'}'};</div>
                     <div className={styles.codeLine}></div>
-                    <div className={styles.codeLine}><span className={styles.keyword}>function</span> <span className={styles.function}>buildSolution</span>() {'{'}</div>
-                    <div className={styles.codeLine}>&nbsp;&nbsp;<span className={styles.keyword}>return</span> <span className={styles.string}>"Clean, scalable, user-focused software"</span>;</div>
+                    <div className={styles.codeLine}><span className={styles.keyword}>function</span> <span className={styles.function}>build</span>() {'{'}</div>
+                    <div className={styles.codeLine}>&nbsp;&nbsp;<span className={styles.keyword}>return</span> <span className={styles.string}>"Simple ideas, powerful solutions"</span>;</div>
                     <div className={styles.codeLine}>{'}'}<span className={styles.blinkingCursor}></span></div>
                   </div>
                 </div>

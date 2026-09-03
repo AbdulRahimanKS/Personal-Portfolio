@@ -1,10 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>new-portfolio</title>
+    <script>
+      (function() {
+        var theme = localStorage.getItem('portfolio-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <style>
+      :root, html, body {
+        background-color: #121212;
+        color: #f9f9f9;
+      }
+      html[data-theme='light'], html[data-theme='light'] body {
+        background-color: #f8f9ff;
+        color: #0b1c30;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

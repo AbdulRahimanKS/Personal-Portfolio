@@ -74,7 +74,7 @@ const Navbar = () => {
       <div className={styles.navbarContainer}>
         {/* Mobile Logo Placeholder (Left aligned on mobile) */}
         <a href="#home" className={styles.mobileLogo}>
-          AJ
+          AR
         </a>
 
         {/* Desktop Navigation Wrapper */}
@@ -84,7 +84,7 @@ const Navbar = () => {
           </nav>
           
           <a href="#home" className={styles.centerLogo}>
-            AJ
+            AR
           </a>
           
           <nav className={styles.rightNav}>
