@@ -49,6 +49,12 @@
   line-height: 1.6;
 }
 
+.ctaGroup {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
 .socialLinks {
   display: flex;
   flex-wrap: wrap;
@@ -80,23 +86,22 @@
 .heroVisual {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  min-height: 450px;
   background-color: var(--surface-container-lowest);
   border-radius: 12px;
   border: 1px solid var(--outline-variant);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
+  padding: 24px;
 }
 
 @media (min-width: 768px) {
   .heroVisual {
-    display: flex;
-    aspect-ratio: auto;
     height: 100%;
-    min-height: 400px;
+    min-height: 500px;
   }
 }
 
@@ -107,40 +112,40 @@
   z-index: 0;
 }
 
-.codeCard {
+.codeEditor {
   position: relative;
   z-index: 10;
-  width: 80%;
-  height: 70%;
-  background: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  max-width: 520px;
+  background: #0f172a;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  border-radius: 8px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(59, 130, 246, 0.15);
   transition: all 0.3s;
 }
 
-[data-theme='dark'] .codeCard {
-  background: rgba(30, 41, 59, 0.7);
-  border-color: rgba(255, 255, 255, 0.1);
+.codeEditor:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 35px rgba(59, 130, 246, 0.25);
+  border-color: rgba(59, 130, 246, 0.5);
 }
 
-.codeCard:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  border-color: rgba(37, 99, 235, 0.2);
-  transform: translateY(-2px);
-}
-
-.cardHeader {
-  height: 32px;
-  background-color: var(--surface-container-low);
-  border-bottom: 1px solid var(--outline-variant);
+.editorHeader {
+  height: 40px;
+  background-color: rgba(30, 41, 59, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   padding: 0 16px;
+  position: relative;
+}
+
+.windowControls {
+  display: flex;
   gap: 8px;
 }
 
@@ -150,42 +155,89 @@
   border-radius: 50%;
 }
 
-.cardBody {
-  padding: 24px;
-  flex-grow: 1;
-  background-color: #1e293b;
+.fileTabs {
+  display: flex;
+  margin-left: 20px;
+  height: 100%;
+}
+
+.activeTab {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background: rgba(255, 255, 255, 0.05);
   color: #e2e8f0;
   font-family: var(--font-mono);
+  font-size: 13px;
+  border-top: 1px solid #3b82f6;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.editorBody {
+  display: flex;
+  padding: 16px 0;
+  font-family: var(--font-mono);
   font-size: 14px;
+  line-height: 1.5;
 }
 
-.keyword {
-  color: #b4c5ff;
-  /* primary-fixed-dim */
+.lineNumbers {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  color: #475569;
+  text-align: right;
+  user-select: none;
 }
 
-.string {
-  color: #a7f3d0;
+.codeContent {
+  flex-grow: 1;
+  padding-right: 16px;
+  color: #e2e8f0;
+  overflow-x: auto;
 }
 
-.return {
-  color: #fca5a5;
+.codeLine {
+  white-space: pre;
+}
+
+.keyword { color: #c678dd; }
+.string { color: #98c379; }
+.function { color: #61afef; }
+.property { color: #e06c75; }
+.variable { color: #e5c07b; }
+
+.blinkingCursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background-color: #61afef;
+  vertical-align: middle;
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .glowEffect {
   position: absolute;
-  bottom: -16px;
-  right: -16px;
-  width: 128px;
-  height: 128px;
-  background-color: rgba(37, 99, 235, 0.1);
+  bottom: -20px;
+  right: -20px;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(37, 99, 235, 0.15);
   border-radius: 50%;
-  filter: blur(24px);
+  filter: blur(40px);
   transition: all 0.7s;
+  z-index: 0;
 }
 
 .heroVisual:hover .glowEffect {
-  background-color: rgba(37, 99, 235, 0.2);
+  background-color: rgba(37, 99, 235, 0.25);
 }
 
 .featuresSection {
