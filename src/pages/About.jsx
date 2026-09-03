@@ -22,23 +22,23 @@ const About = () => {
                 </div>
                 <div className={styles.experienceCard}>
                   <span className={styles.years}>5+</span>
-                  <span className={styles.yearsText}>Years of<br/>Experience</span>
+                  <span className={styles.yearsText}>Years of<br />Experience</span>
                 </div>
               </div>
             </div>
 
             <div className={styles.textColumn}>
-              <h2 className={styles.heading}>Passionate about creating impactful digital experiences</h2>
-              
+              <h2 className={styles.heading}>Building practical solutions with technology</h2>
+
               <div className={styles.paragraphs}>
                 <p>
-                  Hello! I'm Abdul Rahiman, a Full Stack Developer with a passion for building robust and scalable web applications. My journey in software development started with a curiosity for how things work on the internet, which quickly evolved into a full-fledged career.
+                  I'm Abdul Rahiman, a Full Stack Developer focused on building reliable and user-friendly digital products.
                 </p>
                 <p>
-                  I specialize in both frontend and backend technologies, allowing me to understand and architect complete solutions. Whether it's crafting a pixel-perfect user interface or designing a complex database schema, I approach every task with the same level of dedication and attention to detail.
+                  I enjoy working across the full development process — from creating intuitive frontend experiences to building backend systems, APIs, and databases.
                 </p>
                 <p>
-                  My philosophy is simple: write clean, maintainable code, and always keep the end-user in mind. I believe that good software is not just about solving technical problems, but about creating tools that make people's lives easier.
+                  I like solving real-world problems with technology and turning ideas into practical, scalable solutions. I'm also interested in exploring emerging technologies, including AI and intelligent systems.
                 </p>
               </div>
 
