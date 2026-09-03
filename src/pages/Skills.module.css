@@ -1,124 +1,154 @@
 .skillsSection {
-  padding: 40px 0;
+  padding: 60px 0;
 }
 
 .header {
-  text-align: left;
-  margin-bottom: 32px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .title {
-  font-size: 28px;
+  font-size: 36px;
   color: var(--on-surface);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .subtitle {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--on-surface-variant);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.filterControls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.filterBtn {
+  background-color: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.filterBtn:hover {
+  background-color: var(--surface-container);
+}
+
+.filterBtnActive {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--on-primary);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 @media (min-width: 768px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.cardHeader {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 32px;
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
-.iconWrapper {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background-color: var(--surface-container-low);
-  color: var(--primary);
+.techCard {
+  background-color: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--outline-variant);
+  box-shadow: var(--shadow-sm);
+  padding: 24px 12px;
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 180px;
+  transition: all var(--transition-speed);
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.categoryTitle {
-  font-size: 18px;
-  color: var(--on-surface);
+.techCard:hover, .activeCard {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
 }
 
-.skillsList {
+.cardContent {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-}
-
-.skillItem {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.skillInfo {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 16px;
+  transition: transform 0.3s ease;
+  width: 100%;
 }
 
-.skillName {
+.techCard:hover .cardContent, .activeCard .cardContent {
+  transform: translateY(-24px);
+}
+
+.iconImg {
+  width: 48px;
+  height: 48px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: filter var(--transition-speed);
+}
+
+.iconMaterial {
+  font-size: 48px;
+  color: var(--on-surface-variant);
+  transition: filter var(--transition-speed), color var(--transition-speed);
+}
+
+.techCard:hover .iconImg, .activeCard .iconImg,
+.techCard:hover .iconMaterial, .activeCard .iconMaterial {
+  filter: brightness(1.2) drop-shadow(0 0 8px rgba(37, 99, 235, 0.4));
+  color: var(--primary);
+}
+
+.techName {
+  font-size: 16px;
   font-weight: 600;
   color: var(--on-surface);
-}
-
-.skillLevel {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  color: var(--on-surface-variant);
-}
-
-.progressBar {
-  height: 8px;
-  background-color: var(--surface-container);
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.progressFill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--primary), #60a5fa);
-  border-radius: 999px;
-  transition: width 1s ease-in-out;
-}
-
-.bottomSection {
-  margin-top: 32px;
-  display: flex;
-  justify-content: center;
-}
-
-.ctaBox {
-  background-color: var(--surface-container-low);
-  border: 1px solid var(--outline-variant);
-  border-radius: 16px;
-  padding: 24px;
   text-align: center;
-  max-width: 600px;
+  margin: 0;
 }
 
-.ctaTitle {
-  font-size: 20px;
-  color: var(--on-surface);
-  margin-bottom: 8px;
-}
-
-.ctaText {
+.descPanel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.4;
   color: var(--on-surface-variant);
-  margin-bottom: 16px;
-  font-size: 14px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.techCard:hover .descPanel, .activeCard .descPanel {
+  opacity: 1;
+  transform: translateY(0);
 }
