@@ -14,7 +14,7 @@ const Home = () => {
                 Full Stack <span className="text-gradient">Developer</span>
               </h1>
               <p className={styles.description}>
-                I turn ideas into reliable digital products by building clean, scalable applications from frontend to backend.
+                I turn ideas into reliable digital products by building clean, scalable applications from frontend to backend — while exploring AI-powered solutions and intelligent automation.
               </p>
               
               <div className={styles.ctaGroup}>
@@ -62,7 +62,7 @@ const Home = () => {
                     <div className={styles.codeLine}>&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.string}>"Web Applications"</span>,</div>
                     <div className={styles.codeLine}>&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.string}>"Backend Systems"</span>,</div>
                     <div className={styles.codeLine}>&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.string}>"APIs & Databases"</span>,</div>
-                    <div className={styles.codeLine}>&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.string}>"AI Integration"</span></div>
+                    <div className={styles.codeLine}>&nbsp;&nbsp;&nbsp;&nbsp;<span className={styles.string}>"AI & Automation"</span></div>
                     <div className={styles.codeLine}>&nbsp;&nbsp;]</div>
                     <div className={styles.codeLine}>{'}'};</div>
                     <div className={styles.codeLine}></div>
