@@ -9,8 +9,8 @@ const ThemeToggle = () => {
     <button 
       className={styles.toggleBtn} 
       onClick={toggleTheme}
-      aria-label="Toggle Dark Mode"
-      title="Toggle Dark Mode"
+      aria-label={theme === 'light' ? "Switch to Dark Mode" : "Switch to Light Mode"}
+      title={theme === 'light' ? "Switch to Dark Mode" : "Switch to Light Mode"}
     >
       {theme === 'light' ? (
         <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">

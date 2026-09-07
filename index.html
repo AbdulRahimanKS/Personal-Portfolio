@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon-circle.png" />
@@ -7,18 +7,18 @@
     <title>Abdul Rahiman | Full Stack Developer</title>
     <script>
       (function() {
-        var theme = localStorage.getItem('portfolio-theme') || 'dark';
+        var theme = localStorage.getItem('portfolio-theme') || 'light';
         document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>
     <style>
       :root, html, body {
-        background-color: #121212;
-        color: #f9f9f9;
-      }
-      html[data-theme='light'], html[data-theme='light'] body {
         background-color: #f8f9ff;
         color: #0b1c30;
+      }
+      html[data-theme='dark'], html[data-theme='dark'] body {
+        background-color: #121212;
+        color: #f9f9f9;
       }
     </style>
   </head>
