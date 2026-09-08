@@ -4,8 +4,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 import uvicorn
 
+from typing import List, Optional, Dict, Any
 from config import ALLOWED_ORIGINS, PORT
 from email_service import send_contact_email
+from ai_service import generate_chat_reply
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -32,6 +34,10 @@ class ContactFormRequest(BaseModel):
     email: str = Field(..., min_length=5, max_length=150, description="Email address of the sender")
     subject: str = Field(..., min_length=2, max_length=200, description="Subject of the message")
     message: str = Field(..., min_length=3, max_length=5000, description="Message body")
+
+class ChatMessageRequest(BaseModel):
+    message: str = Field(..., min_length=1, max_length=1000, description="The user query or prompt")
+    history: Optional[List[Dict[str, Any]]] = Field(default=[], description="Recent conversation turns")
 
 @app.get("/health", tags=["Health"])
 def health_check():
@@ -78,6 +84,24 @@ def handle_contact_form(payload: ContactFormRequest):
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Failed to send your message. Please verify your SMTP settings or try again later."
+        )
+
+@app.post("/api/chat", status_code=status.HTTP_200_OK, tags=["AI Chatbot"])
+async def handle_ai_chat(payload: ChatMessageRequest):
+    """
+    Receives message from portfolio visitor and returns AI assistant's reply.
+    """
+    try:
+        reply = await generate_chat_reply(
+            message=payload.message.strip(),
+            history=payload.history or []
+        )
+        return {"reply": reply}
+    except Exception as exc:
+        logger.error(f"Error handling chat message: {exc}", exc_info=True)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to generate AI response. Please try again."
         )
 
 if __name__ == "__main__":

@@ -23,3 +23,7 @@ origins_raw = os.getenv(
     "http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000"
 )
 ALLOWED_ORIGINS = [origin.strip() for origin in origins_raw.split(",") if origin.strip()]
+
+# AI Assistant Configuration
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")

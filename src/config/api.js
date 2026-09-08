@@ -8,4 +8,5 @@ export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localho
 export const API_ENDPOINTS = {
   CONTACT: `${API_BASE_URL}/api/contact`,
   HEALTH: `${API_BASE_URL}/health`,
+  CHAT: `${API_BASE_URL}/api/chat`,
 };
