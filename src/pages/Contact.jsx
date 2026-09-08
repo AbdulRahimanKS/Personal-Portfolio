@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
+import { API_ENDPOINTS } from '../config/api';
 import styles from './Contact.module.css';
 
 const Contact = () => {
@@ -9,16 +10,115 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    subject: false,
+    message: false
+  });
+  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
+  const [feedbackMessage, setFeedbackMessage] = useState('');
+
+  // Validate email format
+  const isValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  };
+
+  // Custom field validation rules
+  const getErrors = () => {
+    const errs = {};
+    if (!formData.name.trim()) {
+      errs.name = 'Name is required.';
+    } else if (formData.name.trim().length < 2) {
+      errs.name = 'Name must be at least 2 characters.';
+    }
+
+    if (!formData.email.trim()) {
+      errs.email = 'Email address is required.';
+    } else if (!isValidEmail(formData.email)) {
+      errs.email = 'Please enter a valid email address.';
+    }
+
+    if (!formData.subject.trim()) {
+      errs.subject = 'Subject is required.';
+    } else if (formData.subject.trim().length < 3) {
+      errs.subject = 'Subject must be at least 3 characters.';
+    }
+
+    if (!formData.message.trim()) {
+      errs.message = 'Message is required.';
+    } else if (formData.message.trim().length < 3) {
+      errs.message = 'Message must be at least 3 characters.';
+    }
+
+    return errs;
+  };
+
+  const errors = getErrors();
+  const isFormValid = Object.keys(errors).length === 0;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (status !== 'idle') {
+      setStatus('idle');
+      setFeedbackMessage('');
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleBlur = (e) => {
+    setTouched({ ...touched, [e.target.name]: true });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+
+    // Mark all fields as touched on submit
+    setTouched({ name: true, email: true, subject: true, message: true });
+
+    if (!isFormValid) {
+      return;
+    }
+
+    setStatus('loading');
+    setFeedbackMessage('');
+
+    try {
+      const response = await fetch(API_ENDPOINTS.CONTACT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        const successText = data.message || 'Thank you for your message! I will get back to you soon.';
+        setFeedbackMessage(successText);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTouched({ name: false, email: false, subject: false, message: false });
+
+        // Auto-dismiss success notification after 6 seconds
+        setTimeout(() => {
+          setStatus((prev) => (prev === 'success' ? 'idle' : prev));
+          setFeedbackMessage((prev) => (prev === successText ? '' : prev));
+        }, 6000);
+      } else {
+        setStatus('error');
+        const errorMsg = Array.isArray(data?.detail)
+          ? data.detail.map((item) => item.msg || JSON.stringify(item)).join(' | ')
+          : (typeof data?.detail === 'string' ? data.detail : 'Failed to send message. Please try again.');
+        setFeedbackMessage(errorMsg);
+      }
+    } catch (err) {
+      console.error('Contact form submission error:', err);
+      setStatus('error');
+      setFeedbackMessage(
+        'Unable to connect to the email server. Please make sure the backend server is running, or reach me directly at rahimanks.abdul@gmail.com.'
+      );
+    }
   };
 
   return (
@@ -86,7 +186,7 @@ const Contact = () => {
 
             <div className={styles.contactForm}>
               <div className="card">
-                <form onSubmit={handleSubmit} className={styles.form}>
+                <form noValidate onSubmit={handleSubmit} className={styles.form}>
                   <div className={styles.formRow}>
                     <div className={styles.formGroup}>
                       <label htmlFor="name" className={styles.label}>Your Name</label>
@@ -94,12 +194,18 @@ const Contact = () => {
                         type="text" 
                         id="name" 
                         name="name" 
-                        className={styles.input} 
+                        className={`${styles.input} ${touched.name && errors.name ? styles.inputError : ''}`} 
                         value={formData.name}
                         onChange={handleChange}
-                        required 
+                        onBlur={handleBlur}
                         placeholder="e.g. David Miller"
                       />
+                      {touched.name && errors.name && (
+                        <span className={styles.fieldError}>
+                          <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>error</span>
+                          {errors.name}
+                        </span>
+                      )}
                     </div>
                     
                     <div className={styles.formGroup}>
@@ -108,12 +214,18 @@ const Contact = () => {
                         type="email" 
                         id="email" 
                         name="email" 
-                        className={styles.input} 
+                        className={`${styles.input} ${touched.email && errors.email ? styles.inputError : ''}`} 
                         value={formData.email}
                         onChange={handleChange}
-                        required 
+                        onBlur={handleBlur}
                         placeholder="david@company.com"
                       />
+                      {touched.email && errors.email && (
+                        <span className={styles.fieldError}>
+                          <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>error</span>
+                          {errors.email}
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -123,12 +235,18 @@ const Contact = () => {
                       type="text" 
                       id="subject" 
                       name="subject" 
-                      className={styles.input} 
+                      className={`${styles.input} ${touched.subject && errors.subject ? styles.inputError : ''}`} 
                       value={formData.subject}
                       onChange={handleChange}
-                      required 
+                      onBlur={handleBlur}
                       placeholder="e.g. Project Inquiry / Job Opportunity"
                     />
+                    {touched.subject && errors.subject && (
+                      <span className={styles.fieldError}>
+                        <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>error</span>
+                        {errors.subject}
+                      </span>
+                    )}
                   </div>
 
                   <div className={styles.formGroup}>
@@ -136,18 +254,68 @@ const Contact = () => {
                     <textarea 
                       id="message" 
                       name="message" 
-                      className={styles.textarea} 
+                      className={`${styles.textarea} ${touched.message && errors.message ? styles.inputError : ''}`} 
                       value={formData.message}
                       onChange={handleChange}
-                      required 
+                      onBlur={handleBlur}
                       placeholder="Tell me about your project, goals, or timeline..."
                       rows="5"
                     ></textarea>
+                    {touched.message && errors.message && (
+                      <span className={styles.fieldError}>
+                        <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>error</span>
+                        {errors.message}
+                      </span>
+                    )}
                   </div>
 
-                  <button type="submit" className={`btn btn-primary ${styles.submitBtn}`}>
-                    Send Message
-                    <span className="material-symbols-outlined" style={{ fontSize: '18px', marginLeft: '8px' }}>send</span>
+                  {status === 'success' && (
+                    <div className={`${styles.statusBanner} ${styles.successBanner}`}>
+                      <span className="material-symbols-outlined">check_circle</span>
+                      <span className={styles.bannerText}>{feedbackMessage}</span>
+                      <button 
+                        type="button" 
+                        onClick={() => { setStatus('idle'); setFeedbackMessage(''); }} 
+                        className={styles.dismissBtn}
+                        aria-label="Dismiss message"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  )}
+
+                  {status === 'error' && (
+                    <div className={`${styles.statusBanner} ${styles.errorBanner}`}>
+                      <span className="material-symbols-outlined">error</span>
+                      <span className={styles.bannerText}>{feedbackMessage}</span>
+                      <button 
+                        type="button" 
+                        onClick={() => { setStatus('idle'); setFeedbackMessage(''); }} 
+                        className={styles.dismissBtn}
+                        aria-label="Dismiss error"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  )}
+
+                  <button 
+                    type="submit" 
+                    className={`btn btn-primary ${styles.submitBtn}`}
+                    disabled={!isFormValid || status === 'loading'}
+                    title={!isFormValid ? "Please fill in all fields to send" : "Send Message"}
+                  >
+                    {status === 'loading' ? (
+                      <>
+                        <span className={styles.spinner}></span>
+                        Sending Message...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <span className="material-symbols-outlined" style={{ fontSize: '18px', marginLeft: '8px' }}>send</span>
+                      </>
+                    )}
                   </button>
                 </form>
               </div>
