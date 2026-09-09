@@ -5,11 +5,11 @@ import styles from './Projects.module.css';
 const Projects = () => {
   const projectsList = [
     {
-      title: "Learning Platform",
-      category: "Full Stack",
-      description: "A modern learning platform designed to provide an organized and engaging learning experience, bringing together courses, educational content, and interactive features in one place. Engineered with asynchronous task processing and scalable cloud storage.",
-      tags: ["Python", "Django", "React", "PostgreSQL", "Redis", "Celery", "Cloudflare R2", "REST APIs"],
-      image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "EduLearn – Learning Management Platform",
+      category: "Full Stack / AI",
+      description: "EduLearn is an enterprise-ready, full-stack Learning Management System powered by an AI evaluation engine that automates code and assignment grading with real-time feedback, backed by a distributed Django & Celery pipeline and Cloudflare R2 storage.",
+      tags: ["Python", "Django", "React", "TypeScript", "Tailwind CSS", "PostgreSQL", "Redis", "Celery", "Django Channels", "WebSockets", "Cloudflare R2", "OpenAI & Groq (Llama 3.3)", "REST APIs"],
+      image: "/projects/learnhub.png",
       icon: "school",
       links: [
         { label: "Source Code", url: "https://github.com/AbdulRahimanKS/learn-hub", icon: "github", primary: true }
@@ -36,18 +36,17 @@ const Projects = () => {
     },
     {
       title: "AI SaaS Cost Optimization Platform",
-      category: "AI / Cloud",
+      category: "AI / Analytics",
       status: "In Progress",
-      description: "A platform exploring how AI and software services can be discovered, compared, and optimized based on features, pricing, and usage requirements.",
+      description: "An AI spend audit platform that analyzes company expenditures across AI tools and subscriptions, detecting overspending and delivering actionable, line-item cost optimization recommendations.",
       tags: ["Python", "FastAPI", "React", "PostgreSQL", "Analytics", "AI APIs"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/projects/spend-audit.png",
       icon: "trending_up",
       links: []
     },
     {
       title: "AI-Powered Chatbot",
       category: "AI / Full Stack",
-      status: "Completed",
       description: "An AI-powered conversational application that understands user queries and provides intelligent, context-aware responses through a simple chat interface.",
       tags: ["Python", "AI", "REST APIs", "React", "FastAPI"],
       image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -57,7 +56,6 @@ const Projects = () => {
     {
       title: "CRM System",
       category: "Full Stack / Business",
-      status: "Completed",
       description: "A full-stack customer relationship management system designed to help teams manage client records, track sales pipelines, and organize business workflows through a centralized dashboard.",
       tags: ["Python", "Django", "React", "PostgreSQL", "REST APIs"],
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -67,27 +65,28 @@ const Projects = () => {
     {
       title: "CozaStore",
       category: "E-Commerce / Full Stack",
-      status: "Completed",
       description: "A full-stack e-commerce application with a modern shopping experience, product management, customer accounts, and an end-to-end purchasing workflow.",
       tags: ["Python", "Django", "React", "PostgreSQL", "REST APIs"],
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       icon: "shopping_bag",
-      links: []
+      links: [
+        { label: "Source Code", url: "https://github.com/AbdulRahimanKS/CozaStore", icon: "github", primary: true }
+      ]
     },
     {
-      title: "Doctor–Patient Platform",
-      category: "Healthcare / Full Stack",
-      status: "Completed",
-      description: "A healthcare platform designed to connect doctors and patients through a centralized portal for managing appointments, medical records, and digital consultations.",
-      tags: ["Python", "Django", "React", "PostgreSQL", "REST APIs"],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "MedConnect – AI Telemedicine Platform",
+      category: "Healthcare / AI",
+      description: "An AI-powered healthcare platform featuring real-time multimodal AI diagnostics powered by Google Gemini Vision. Includes doctor appointment booking, instant AI skin evaluations, WebRTC video consultations, live doctor chats, and an integrated skincare pharmacy.",
+      tags: ["Python", "Django", "Django Channels", "WebSockets", "Google Gemini Vision", "WebRTC / Node.js", "Celery", "Redis", "PostgreSQL"],
+      image: "/projects/doctor-patient.png",
       icon: "medical_services",
-      links: []
+      links: [
+        { label: "Source Code", url: "https://github.com/AbdulRahimanKS/Doctor-Patient-App", icon: "github", primary: true }
+      ]
     },
     {
       title: "Time-Lapse Camera System",
       category: "Computer Vision",
-      status: "Completed",
       description: "An automated application for capturing, processing, and compiling time-lapse footage, designed to orchestrate camera capture and render high-resolution visual sequences over extended periods.",
       tags: ["Python", "OpenCV", "Camera APIs", "Image Processing", "Automation"],
       image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -114,7 +113,7 @@ const Projects = () => {
                   <img src={project.image} alt={project.title} className={styles.projectImage} />
                   <div className={styles.imageOverlay}></div>
                   <span className={styles.categoryBadge}>{project.category}</span>
-                  {project.status && (
+                  {project.status && project.status !== 'In Progress' && (
                     <span className={`${styles.statusBadge} ${project.status === 'Completed' ? styles.statusCompleted : ''}`}>
                       <span className={`${styles.statusDot} ${project.status === 'Completed' ? styles.dotCompleted : ''}`}></span>
                       {project.status}
@@ -164,7 +163,7 @@ const Projects = () => {
                       ) : (
                         <span className={styles.privateNotice}>
                           <span className="material-symbols-outlined" style={{ fontSize: '18px', marginRight: '6px', verticalAlign: 'middle' }}>lock</span>
-                          Proprietary / Internal R&D
+                          Private / Enterprise Codebase
                         </span>
                       )}
                     </div>
