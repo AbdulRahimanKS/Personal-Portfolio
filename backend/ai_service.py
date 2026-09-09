@@ -36,7 +36,8 @@ About Abdul Rahiman:
   - Work Inquiries: Open to full-time developer positions, remote roles, high-impact freelance projects, and AI/Backend consulting.
 
 Behavior Guidelines:
-- Keep answers concise, clear, and easy to read using markdown (bullet points, bold text).
+- Keep answers concise, clear, professional, and easy to read using clean markdown (bullet points, bold text).
+- Do not use decorative emojis or icons in responses; maintain a standard, professional software engineering tone.
 - Be polite, approachable, and confident about Abdul's skills.
 - If asked about contacting or hiring Abdul, guide them to the Contact page or direct email (rahimanks.abdul@gmail.com).
 - If asked an off-topic question unrelated to Abdul or software development, courteously bring the focus back to Abdul's work, tech stack, or projects.
@@ -47,23 +48,23 @@ Behavior Guidelines:
 FALLBACK_RESPONSES = [
     {
         "keywords": ["experience", "work", "job", "career", "company", "role"],
-        "reply": "💼 **Abdul Rahiman's Work Experience**\n\nAbdul is a **Python Developer & Full-Stack Engineer** who builds scalable web applications, robust RESTful APIs (FastAPI & Django), cloud infrastructure on Microsoft Azure, and real-time AI solutions."
+        "reply": "**Work Experience**\n\nAbdul is a **Python Developer & Full-Stack Engineer** who builds scalable web applications, robust RESTful APIs (FastAPI & Django), cloud infrastructure on Microsoft Azure, and real-time AI solutions."
     },
     {
         "keywords": ["project", "portfolio", "built", "apps", "work"],
-        "reply": "🚀 **Abdul's Featured Projects**\n\nAbdul has developed 9 diverse projects, including:\n- **Employee Management System (EMS)** (Enterprise Django & PostgreSQL)\n- **eLearning Azure Solution** (Cloud-hosted learning platform)\n- **Multi-Vendor E-Commerce Platform** (Scalable commerce engine)\n- **AI-Powered Smart Summarizer** (LLM-based document intelligence)\n- **Real-Time Chat App** (WebSocket-powered messaging)\n\nYou can explore all of these in detail on the **Projects** page!"
+        "reply": "**Featured Projects**\n\nAbdul has developed 9 diverse projects, including:\n- **Employee Management System (EMS)** (Enterprise Django & PostgreSQL)\n- **eLearning Azure Solution** (Cloud-hosted learning platform)\n- **Multi-Vendor E-Commerce Platform** (Scalable commerce engine)\n- **AI-Powered Smart Summarizer** (LLM-based document intelligence)\n- **Real-Time Chat App** (WebSocket-powered messaging)\n\nYou can explore all of these in detail on the **Projects** page."
     },
     {
         "keywords": ["skill", "stack", "technology", "tech", "python", "react", "fastapi", "django"],
-        "reply": "⚡ **Technical Expertise**\n\n- **Languages**: Python, JavaScript, TypeScript, SQL\n- **Back-End**: FastAPI, Django, Flask, REST APIs, Celery\n- **Front-End**: React.js, Vite, Modern CSS/UX\n- **Databases**: PostgreSQL, MySQL, SQLite, MongoDB\n- **Cloud & AI**: Microsoft Azure, Docker, Google Gemini, OpenAI, LangChain"
+        "reply": "**Technical Expertise**\n\n- **Languages**: Python, JavaScript, TypeScript, SQL\n- **Back-End**: FastAPI, Django, Flask, REST APIs, Celery\n- **Front-End**: React.js, Vite, Modern CSS/UX\n- **Databases**: PostgreSQL, MySQL, SQLite, MongoDB\n- **Cloud & AI**: Microsoft Azure, Docker, Google Gemini, OpenAI, LangChain"
     },
     {
         "keywords": ["hire", "contact", "email", "reach", "talk", "message", "call", "freelance"],
-        "reply": "📬 **Get in Touch with Abdul**\n\nAbdul is open to full-time roles, freelance collaborations, and tech consulting!\n- **Email**: [rahimanks.abdul@gmail.com](mailto:rahimanks.abdul@gmail.com)\n- **Portfolio Contact**: You can also use the message form on the **Contact** page."
+        "reply": "**Get in Touch with Abdul**\n\nAbdul is open to full-time roles, freelance collaborations, and tech consulting.\n- **Email**: [rahimanks.abdul@gmail.com](mailto:rahimanks.abdul@gmail.com)\n- **Portfolio Contact**: You can also use the message form on the **Contact** page."
     },
     {
         "keywords": ["about", "who is", "who are you", "bio", "intro", "hello", "hi", "hey"],
-        "reply": "👋 **Hello! I'm Abdul Rahiman's AI Assistant.**\n\nAbdul is a **Python Developer & Full-Stack AI Engineer** specializing in resilient backends, modern web applications, and AI integrations.\n\nFeel free to ask me about his **work experience**, **top projects**, **tech stack**, or **how to contact him**!"
+        "reply": "**Hello! I am Abdul Rahiman's AI Assistant.**\n\nAbdul is a **Python Developer & Full-Stack AI Engineer** specializing in resilient backends, modern web applications, and AI integrations.\n\nFeel free to ask me about his **work experience**, **top projects**, **tech stack**, or **how to contact him**."
     }
 ]
 
@@ -76,14 +77,14 @@ def _get_fallback_reply(user_message: str) -> str:
             return item["reply"]
 
     return (
-        "👋 **I am Abdul Rahiman's Portfolio Assistant!**\n\n"
+        "**Abdul Rahiman's Portfolio Assistant**\n\n"
         "Abdul is a **Python Developer & Full-Stack AI Engineer** specializing in FastAPI, Django, React, and AI integrations.\n\n"
         "You can ask me about:\n"
-        "- 💼 **Work Experience & Background**\n"
-        "- 🚀 **Featured 9 Portfolio Projects**\n"
-        "- ⚡ **Technical Skills & Tools**\n"
-        "- 📬 **How to Contact or Hire Abdul**\n\n"
-        "*(Tip: You can also reach him directly at [rahimanks.abdul@gmail.com](mailto:rahimanks.abdul@gmail.com) or via the Contact page!)*"
+        "- **Work Experience & Background**\n"
+        "- **Featured Portfolio Projects**\n"
+        "- **Technical Skills & Tools**\n"
+        "- **How to Contact or Hire Abdul**\n\n"
+        "(You can also reach him directly at [rahimanks.abdul@gmail.com](mailto:rahimanks.abdul@gmail.com) or via the Contact page.)"
     )
 
 
