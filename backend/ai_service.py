@@ -14,12 +14,12 @@ About Abdul Rahiman:
 - **Current Organization**: Senscript Technologies
 - **Experience Summary**: Specializes in building high-performance Python backends (FastAPI, Django, Flask), architecting REST APIs, designing relational/NoSQL databases, integrating modern AI/LLMs (Gemini, OpenAI, LangChain), and deploying robust cloud solutions (Azure, Docker).
 - **Core Skills**:
-  - Languages: Python, JavaScript, TypeScript, SQL, HTML5, CSS3
-  - Back-End: FastAPI, Django, Flask, RESTful APIs, Celery, WebSockets
-  - Front-End: React.js, Vite, Vanilla CSS / Tailwind CSS, Modern UI/UX
-  - Databases: PostgreSQL, MySQL, SQLite, MongoDB, Redis
-  - Cloud & DevOps: Microsoft Azure, Docker, Linux, Git/GitHub, CI/CD, Postman
-  - AI & LLM: Google Gemini API, OpenAI API, LangChain, RAG architectures, Prompt Engineering
+  - Backend: Python, Django, FastAPI, Flask, SQLAlchemy, Celery, REST APIs, WebSockets
+  - AI: OpenCV, YOLO, Pandas, AI APIs (Gemini / OpenAI), Prompt Engineering
+  - Frontend: HTML, CSS, JavaScript, TypeScript, React, Tailwind CSS, Bootstrap, jQuery
+  - Database: SQL, PostgreSQL, MySQL, SQLite, MongoDB, Redis, Alembic
+  - Tools: Git, GitHub, GitLab, Vite, Linux, Postman
+  - Cloud: Docker, Microsoft Azure
 - **Key Projects Highlight**:
   1. **Employee Management System (EMS)**: Full-lifecycle enterprise staff & payroll management with granular role-based security.
   2. **eLearning Azure Solution**: Cloud-hosted learning platform with Azure integration, course management, and media delivery.
@@ -55,8 +55,8 @@ FALLBACK_RESPONSES = [
         "reply": "**Featured Projects**\n\nAbdul has developed 9 diverse projects, including:\n- **Employee Management System (EMS)** (Enterprise Django & PostgreSQL)\n- **eLearning Azure Solution** (Cloud-hosted learning platform)\n- **Multi-Vendor E-Commerce Platform** (Scalable commerce engine)\n- **AI-Powered Smart Summarizer** (LLM-based document intelligence)\n- **Real-Time Chat App** (WebSocket-powered messaging)\n\nYou can explore all of these in detail on the **Projects** page."
     },
     {
-        "keywords": ["skill", "stack", "technology", "tech", "python", "react", "fastapi", "django"],
-        "reply": "**Technical Expertise**\n\n- **Languages**: Python, JavaScript, TypeScript, SQL\n- **Back-End**: FastAPI, Django, Flask, REST APIs, Celery\n- **Front-End**: React.js, Vite, Modern CSS/UX\n- **Databases**: PostgreSQL, MySQL, SQLite, MongoDB\n- **Cloud & AI**: Microsoft Azure, Docker, Google Gemini, OpenAI, LangChain"
+        "keywords": ["skill", "stack", "technology", "tech", "python", "react", "fastapi", "django", "skills"],
+        "reply": "**Technical Expertise**\n\n- **Backend**: Python, Django, FastAPI, Flask, SQLAlchemy, Celery, REST APIs, WebSockets\n- **AI**: OpenCV, YOLO, Pandas, AI APIs (Gemini / OpenAI), Prompt Engineering\n- **Frontend**: HTML, CSS, JavaScript, TypeScript, React, Tailwind CSS, Bootstrap, jQuery\n- **Database**: SQL, PostgreSQL, MySQL, SQLite, MongoDB, Redis, Alembic\n- **Tools**: Git, GitHub, GitLab, Vite, Linux, Postman\n- **Cloud**: Docker, Microsoft Azure"
     },
     {
         "keywords": ["hire", "contact", "email", "reach", "talk", "message", "call", "freelance"],

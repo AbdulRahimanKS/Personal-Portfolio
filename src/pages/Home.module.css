@@ -500,6 +500,12 @@
 
 @media (max-width: 768px) {
   .heroSection {
-    padding: 64px 0;
+    padding: 120px 0 40px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding: 104px 0 32px 0;
   }
 }

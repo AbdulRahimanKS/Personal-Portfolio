@@ -1,5 +1,11 @@
 .projectsSection {
-  padding: 60px 0;
+  padding: 110px 0 60px 0;
+}
+
+@media (max-width: 768px) {
+  .projectsSection {
+    padding: 92px 0 40px 0;
+  }
 }
 
 .header {

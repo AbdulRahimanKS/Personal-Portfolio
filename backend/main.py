@@ -14,8 +14,8 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 app = FastAPI(
-    title="Portfolio Contact API",
-    description="FastAPI service for receiving contact messages and sending email notifications.",
+    title="Portfolio Backend & AI API",
+    description="FastAPI backend powering contact submissions, real-time email notifications, and the portfolio AI assistant chatbot.",
     version="1.0.0"
 )
 
@@ -23,7 +23,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1|192\.168\.\d+\.\d+)(:\d+)?$",
-    allow_origins=ALLOWED_ORIGINS,
+    allow_origins=ALLOWED_ORIGINS if ALLOWED_ORIGINS else ["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -42,7 +42,7 @@ class ChatMessageRequest(BaseModel):
 @app.get("/health", tags=["Health"])
 def health_check():
     """Health check endpoint to verify that the backend is up and running."""
-    return {"status": "healthy", "service": "portfolio-contact-api"}
+    return {"status": "healthy", "service": "portfolio-backend-api"}
 
 @app.post("/api/contact", status_code=status.HTTP_200_OK, tags=["Contact"])
 def handle_contact_form(payload: ContactFormRequest):
