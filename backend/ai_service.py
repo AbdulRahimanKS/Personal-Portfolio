@@ -46,8 +46,8 @@ Behavior Guidelines:
 # Fallback knowledge base for offline or missing API key scenarios
 FALLBACK_RESPONSES = [
     {
-        "keywords": ["senscript", "experience", "work", "job", "career", "company"],
-        "reply": "💼 **Abdul Rahiman at Senscript Technologies**\n\nAbdul works as a **Python Developer** at Senscript Technologies, where he engineers scalable web applications, RESTful APIs (using FastAPI and Django), cloud infrastructure on Microsoft Azure, and real-time data solutions."
+        "keywords": ["experience", "work", "job", "career", "company", "role"],
+        "reply": "💼 **Abdul Rahiman's Work Experience**\n\nAbdul is a **Python Developer & Full-Stack Engineer** who builds scalable web applications, robust RESTful APIs (FastAPI & Django), cloud infrastructure on Microsoft Azure, and real-time AI solutions."
     },
     {
         "keywords": ["project", "portfolio", "built", "apps", "work"],
@@ -63,7 +63,7 @@ FALLBACK_RESPONSES = [
     },
     {
         "keywords": ["about", "who is", "who are you", "bio", "intro", "hello", "hi", "hey"],
-        "reply": "👋 **Hello! I'm Abdul Rahiman's AI Assistant.**\n\nAbdul is a **Python Developer & Full-Stack AI Engineer** at Senscript Technologies. He specializes in crafting resilient backends, modern web applications, and AI integrations.\n\nFeel free to ask me about his **experience at Senscript**, **top projects**, **tech stack**, or **how to contact him**!"
+        "reply": "👋 **Hello! I'm Abdul Rahiman's AI Assistant.**\n\nAbdul is a **Python Developer & Full-Stack AI Engineer** specializing in resilient backends, modern web applications, and AI integrations.\n\nFeel free to ask me about his **work experience**, **top projects**, **tech stack**, or **how to contact him**!"
     }
 ]
 
@@ -77,10 +77,10 @@ def _get_fallback_reply(user_message: str) -> str:
 
     return (
         "👋 **I am Abdul Rahiman's Portfolio Assistant!**\n\n"
-        "Abdul is a **Python Developer** at **Senscript Technologies** specializing in FastAPI, Django, React, and AI integrations.\n\n"
+        "Abdul is a **Python Developer & Full-Stack AI Engineer** specializing in FastAPI, Django, React, and AI integrations.\n\n"
         "You can ask me about:\n"
-        "- 💼 **His Experience at Senscript Technologies**\n"
-        "- 🚀 **His 9 Portfolio Projects**\n"
+        "- 💼 **Work Experience & Background**\n"
+        "- 🚀 **Featured 9 Portfolio Projects**\n"
         "- ⚡ **Technical Skills & Tools**\n"
         "- 📬 **How to Contact or Hire Abdul**\n\n"
         "*(Tip: You can also reach him directly at [rahimanks.abdul@gmail.com](mailto:rahimanks.abdul@gmail.com) or via the Contact page!)*"

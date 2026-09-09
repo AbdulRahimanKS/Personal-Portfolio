@@ -3,14 +3,14 @@ import styles from './Chatbot.module.css';
 import { API_ENDPOINTS } from '../config/api';
 
 const QUICK_PROMPTS = [
-  { label: '💼 Senscript Role', prompt: 'Tell me about your experience at Senscript Technologies' },
-  { label: '🚀 Top Projects', prompt: 'What are your top projects and architectures?' },
-  { label: '⚡ Tech Stack', prompt: 'What is your core technical stack and skills?' },
-  { label: '📬 Contact / Hire', prompt: 'How can I contact or hire Abdul?' }
+  { label: 'Work Experience', prompt: 'Tell me about your professional work experience and background' },
+  { label: 'Top Projects', prompt: 'What are your top projects and architectures?' },
+  { label: 'Tech Stack', prompt: 'What is your core technical stack and skills?' },
+  { label: 'Contact / Hire', prompt: 'How can I contact or hire Abdul?' }
 ];
 
 const INITIAL_MESSAGE = {
-  text: "Hello! I am Abdul Rahiman's AI Assistant. How can I help you explore Abdul's experience at Senscript Technologies, his projects, or technical skills?",
+  text: "Hello! I am Abdul Rahiman's AI Assistant. How can I help you explore Abdul's work experience, projects, or technical skills?",
   isUser: false,
   timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 };
@@ -83,11 +83,43 @@ const renderFormattedText = (text) => {
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isBackendOnline, setIsBackendOnline] = useState(false);
   const [messages, setMessages] = useState([INITIAL_MESSAGE]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+
+  // Poll backend health status to dynamically set online/offline indicators
+  useEffect(() => {
+    let isMounted = true;
+
+    const checkHealth = async () => {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3500);
+        const res = await fetch(API_ENDPOINTS.HEALTH, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (res.ok && isMounted) {
+          setIsBackendOnline(true);
+        } else if (isMounted) {
+          setIsBackendOnline(false);
+        }
+      } catch {
+        if (isMounted) {
+          setIsBackendOnline(false);
+        }
+      }
+    };
+
+    checkHealth();
+    const interval = setInterval(checkHealth, 15000);
+
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+    };
+  }, []);
 
   const toggleChat = () => {
     setIsOpen(prev => !prev);
@@ -160,7 +192,7 @@ const Chatbot = () => {
       setMessages(prev => [
         ...prev,
         {
-          text: "⚠️ I'm temporarily having trouble connecting to the backend service. You can still reach Abdul directly at **rahimanks.abdul@gmail.com** or use the Contact form!",
+          text: "Unable to connect to the assistant right now. You can reach Abdul directly at **rahimanks.abdul@gmail.com** or use the Contact form.",
           isUser: false,
           isError: true,
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
@@ -193,25 +225,30 @@ const Chatbot = () => {
             <div className={styles.headerInfo}>
               <div className={styles.avatarWrapper}>
                 <span className={`material-symbols-outlined ${styles.botAvatarIcon}`}>smart_toy</span>
-                <span className={styles.onlineBadge} title="Active"></span>
+                <span
+                  className={`${styles.onlineBadge} ${isBackendOnline ? styles.badgeOnline : styles.badgeOffline}`}
+                  title={isBackendOnline ? "Backend Online" : "Backend Offline"}
+                ></span>
               </div>
               <div className={styles.headerTexts}>
                 <h3 className={styles.headerTitle}>Abdul's AI Assistant</h3>
-                <span className={styles.headerSubtitle}>Senscript Tech • Live Portfolio AI</span>
+                <span className={styles.headerSubtitle}>
+                  {isBackendOnline ? "Live Portfolio AI" : "Offline"}
+                </span>
               </div>
             </div>
             <div className={styles.headerActions}>
-              <button 
-                className={styles.iconButton} 
-                onClick={handleResetChat} 
+              <button
+                className={styles.iconButton}
+                onClick={handleResetChat}
                 title="Reset conversation"
                 aria-label="Reset conversation"
               >
                 <span className="material-symbols-outlined">restart_alt</span>
               </button>
-              <button 
-                className={styles.iconButton} 
-                onClick={toggleChat} 
+              <button
+                className={styles.iconButton}
+                onClick={toggleChat}
                 title="Close chat"
                 aria-label="Close chat"
               >
@@ -228,9 +265,8 @@ const Chatbot = () => {
                 className={`${styles.messageWrapper} ${msg.isUser ? styles.user : styles.bot}`}
               >
                 <div
-                  className={`${styles.message} ${msg.isUser ? styles.user : styles.bot} ${
-                    msg.isError ? styles.errorMessage : ''
-                  }`}
+                  className={`${styles.message} ${msg.isUser ? styles.user : styles.bot} ${msg.isError ? styles.errorMessage : ''
+                    }`}
                 >
                   <div className={styles.messageContent}>
                     {msg.isUser ? msg.text : renderFormattedText(msg.text)}
@@ -304,10 +340,13 @@ const Chatbot = () => {
           className={styles.chatButton}
           onClick={toggleChat}
           aria-label="Open AI Assistant"
-          title="Chat with Abdul's AI Assistant"
+          title={`Chat with Abdul's AI Assistant (${isBackendOnline ? 'Online' : 'Offline'})`}
         >
           <span className={`material-symbols-outlined ${styles.chatButtonIcon}`}>smart_toy</span>
-          <span className={styles.floatingPulse}></span>
+          <span
+            className={`${styles.floatingPulse} ${isBackendOnline ? styles.pulseOnline : styles.pulseOffline}`}
+            title={isBackendOnline ? "Backend Online" : "Backend Offline"}
+          ></span>
         </button>
       )}
     </div>
